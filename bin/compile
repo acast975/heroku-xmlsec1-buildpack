@@ -1,0 +1,14 @@
+#!/usr/bin/env bash
+
+# The location of the pre-compiled xmlsec1 binary.
+VENDORED_XMLSEC1="https://drive.google.com/file/d/0B40GLluJLRKnREtDeXpxd0c4d2c/edit?usp=sharing"
+
+# change to correct directory.
+cd $1 
+mkdir -p "$1/xmlsec1-1.2"
+cd "$1/xmlsec1-1.2"
+
+# download and untar xmlsec
+curl -s -L -o tmp-libxmlsec1.tar.gz $VENDORED_XMLSEC1
+tar -zxf tmp-libxmlsec1.tar.gz # > /dev/null #TODO Hide this output
+rm tmp-libxmlsec1.tar.gz
