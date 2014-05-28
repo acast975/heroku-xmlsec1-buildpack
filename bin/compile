@@ -16,8 +16,18 @@ curl -s -L -o tmp-libxmlsec1.tar.gz $VENDORED_XMLSEC1
 echo "Untar xmlsec1 library"
 tar -zxf tmp-libxmlsec1.tar.gz # > /dev/null #TODO Hide this output
 
+#echo "Copy xmlsec1 bin directory"
+#cp ./bin/* $1/.heroku/python/bin
+
+#echo "Copy xmlsec1 lib directory"
+#cp ./bin/* $1/.heroku/python/bin
+
 echo "Remove temporary files"
 rm tmp-libxmlsec1.tar.gz
 
-export PATH=$PATH:$1/xmlsec1-1.2/bin
-export LD_LIBRARY_PATH=$LD_LIBRARY_PATH:$1/xmlsec1-1.2/lib
+#export PATH=$PATH:$1/xmlsec1-1.2/bin
+#export LD_LIBRARY_PATH=$LD_LIBRARY_PATH:$1/xmlsec1-1.2/lib
+
+echo "Remove env variables"
+set-env PATH '$1/xmlsec1-1.2/bin:$PATH'
+set-env LD_LIBRARY_PATH '$1/xmlsec1-1.2/lib:$LD_LIBRARY_PATH'
