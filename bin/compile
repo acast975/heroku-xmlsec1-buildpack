@@ -6,6 +6,7 @@ set-env() {
 
 # The location of the pre-compiled xmlsec1 binary.
 VENDORED_XMLSEC1="http://160.99.9.199/astanimirovic/xmlsec1-1.2.tgz"
+PROFILE_PATH="/app/.profile.d/python.sh"
 
 # change to correct directory.
 echo "Create direcories"
