@@ -1,5 +1,9 @@
 #!/usr/bin/env bash
 
+set-env() {
+  echo "export $1=$2" >> $PROFILE_PATH
+}
+
 # The location of the pre-compiled xmlsec1 binary.
 VENDORED_XMLSEC1="http://160.99.9.199/astanimirovic/xmlsec1-1.2.tgz"
 
@@ -26,9 +30,9 @@ echo "Remove temporary files"
 rm tmp-libxmlsec1.tar.gz
 
 
-echo "export PATH='$PATH:/app/xmlsec1-1.2/bin'" >> "/app/.profile.d/python.sh"
-echo "export LD_LIBRARY_PATH='$LD_LIBRARY_PATH:/app/xmlsec1-1.2/lib'" >> "/app/.profile.d/python.sh"
+#echo "export PATH='$PATH:/app/xmlsec1-1.2/bin'" >> "/app/.profile.d/python.sh"
+#echo "export LD_LIBRARY_PATH='$LD_LIBRARY_PATH:/app/xmlsec1-1.2/lib'" >> "/app/.profile.d/python.sh"
 
-#echo "Remove env variables"
-#set-env PATH '$1/xmlsec1-1.2/bin:$PATH'
-#set-env LD_LIBRARY_PATH '$1/xmlsec1-1.2/lib:$LD_LIBRARY_PATH'
+echo "Set env variables"
+set-env PATH '/app/xmlsec1-1.2/bin:$PATH'
+set-env LD_LIBRARY_PATH '/app/xmlsec1-1.2/lib:$LD_LIBRARY_PATH'
