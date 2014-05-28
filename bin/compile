@@ -25,6 +25,8 @@ tar -zxf tmp-libxmlsec1.tar.gz # > /dev/null #TODO Hide this output
 echo "Remove temporary files"
 rm tmp-libxmlsec1.tar.gz
 
+echo "$1/.profile.d/python.sh"
+
 echo "export PATH=$PATH:$1/xmlsec1-1.2/bin" >> "$1/.profile.d/python.sh"
 echo "export LD_LIBRARY_PATH=$LD_LIBRARY_PATH:$1/xmlsec1-1.2/lib" >> "$1/.profile.d/python.sh"
 
