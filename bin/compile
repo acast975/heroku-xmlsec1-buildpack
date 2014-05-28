@@ -36,5 +36,7 @@ rm tmp-libxmlsec1.tar.gz
 #echo "export LD_LIBRARY_PATH='$LD_LIBRARY_PATH:/app/xmlsec1-1.2/lib'" >> "/app/.profile.d/python.sh"
 
 echo "Set env variables"
+cat $PROFILE_PATH
 set-env PATH '/app/xmlsec1-1.2/bin:$PATH'
 set-env LD_LIBRARY_PATH '/app/xmlsec1-1.2/lib:$LD_LIBRARY_PATH'
+cat $PROFILE_PATH
