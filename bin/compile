@@ -7,14 +7,14 @@ VENDORED_XMLSEC1="http://160.99.9.199/astanimirovic/xmlsec1-1.2.tgz"
 echo "Create direcories"
 cd "$1" 
 mkdir -p "xmlsec1-1.2"
-#cd "xmlsec1-1.2"
+cd "xmlsec1-1.2"
 
-# download and untar xmlsec
-#echo "Downloading xmlsec1 library"
-#curl -s -L -o tmp-libxmlsec1.tar.gz $VENDORED_XMLSEC1
+# Download and untar xmlsec1 library
+echo "Downloading xmlsec1 library"
+curl -s -L -o tmp-libxmlsec1.tar.gz $VENDORED_XMLSEC1
 
-#echo "Untar xmlsec1 library"
-#tar -zxf tmp-libxmlsec1.tar.gz # > /dev/null #TODO Hide this output
+echo "Untar xmlsec1 library"
+tar -zxf tmp-libxmlsec1.tar.gz # > /dev/null #TODO Hide this output
 
-#echo "Remove temporary files"
-#rm tmp-libxmlsec1.tar.gz
+echo "Remove temporary files"
+rm tmp-libxmlsec1.tar.gz
