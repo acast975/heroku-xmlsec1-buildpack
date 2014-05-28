@@ -25,9 +25,9 @@ tar -zxf tmp-libxmlsec1.tar.gz # > /dev/null #TODO Hide this output
 echo "Remove temporary files"
 rm tmp-libxmlsec1.tar.gz
 
-#export PATH=$PATH:$1/xmlsec1-1.2/bin
-#export LD_LIBRARY_PATH=$LD_LIBRARY_PATH:$1/xmlsec1-1.2/lib
+echo "export PATH=$PATH:$1/xmlsec1-1.2/bin" >> $PROFILE_PATH
+echo "export LD_LIBRARY_PATH=$LD_LIBRARY_PATH:$1/xmlsec1-1.2/lib" >> $PROFILE_PATH
 
-echo "Remove env variables"
-set-env PATH '$1/xmlsec1-1.2/bin:$PATH'
-set-env LD_LIBRARY_PATH '$1/xmlsec1-1.2/lib:$LD_LIBRARY_PATH'
+#echo "Remove env variables"
+#set-env PATH '$1/xmlsec1-1.2/bin:$PATH'
+#set-env LD_LIBRARY_PATH '$1/xmlsec1-1.2/lib:$LD_LIBRARY_PATH'
