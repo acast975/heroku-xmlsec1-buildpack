@@ -25,8 +25,8 @@ tar -zxf tmp-libxmlsec1.tar.gz # > /dev/null #TODO Hide this output
 echo "Remove temporary files"
 rm tmp-libxmlsec1.tar.gz
 
-echo "export PATH=$PATH:$1/xmlsec1-1.2/bin" >> $PROFILE_PATH
-echo "export LD_LIBRARY_PATH=$LD_LIBRARY_PATH:$1/xmlsec1-1.2/lib" >> $PROFILE_PATH
+echo "export PATH=$PATH:$1/xmlsec1-1.2/bin" >> "$1/.profile.d/python.sh"
+echo "export LD_LIBRARY_PATH=$LD_LIBRARY_PATH:$1/xmlsec1-1.2/lib" >> "$1/.profile.d/python.sh"
 
 #echo "Remove env variables"
 #set-env PATH '$1/xmlsec1-1.2/bin:$PATH'
