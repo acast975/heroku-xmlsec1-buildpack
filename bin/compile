@@ -7,13 +7,17 @@ set-env() {
 
 # The location of the pre-compiled xmlsec1 binary.
 VENDORED_XMLSEC1="http://160.99.9.199/astanimirovic/xmlsec1-1.2.tgz"
+VENDORED_LIBFFI="https://s3.amazonaws.com/rt-uploads/libffi-3.0.tgz"
 PROFILE_PATH="$1/.profile.d/xmlsec1.sh"
 
 # change to correct directory.
-echo "Create direcories"
+echo "Create directories"
 cd "$1" 
-mkdir -p "xmlsec1-1.2"
-cd "xmlsec1-1.2"
+mkdir -p "./vendor/xmlsec1-1.2"
+mkdir -p "./vendor/libffi-3.0"
+
+echo "Install xmlsec1 library"
+cd "./vendor/xmlsec1-1.2"
 
 # Download and untar xmlsec1 library
 echo "Downloading xmlsec1 library"
@@ -22,20 +26,26 @@ curl -s -L -o tmp-libxmlsec1.tar.gz $VENDORED_XMLSEC1
 echo "Untar xmlsec1 library"
 tar -zxf tmp-libxmlsec1.tar.gz # > /dev/null #TODO Hide this output
 
-#echo "Copy xmlsec1 bin directory"
-#cp ./bin/* $1/.heroku/python/bin
-
-#echo "Copy xmlsec1 lib directory"
-#cp ./bin/* $1/.heroku/python/bin
-
 echo "Remove temporary files"
 rm tmp-libxmlsec1.tar.gz
 
+cd $1
 
-#echo "export PATH='$PATH:/app/xmlsec1-1.2/bin'" >> "/app/.profile.d/python.sh"
-#echo "export LD_LIBRARY_PATH='$LD_LIBRARY_PATH:/app/xmlsec1-1.2/lib'" >> "/app/.profile.d/python.sh"
+echo "Install libffi library"
+cd "./vendor/libffi-3.0"
+
+# Download and untar xmlsec1 library
+echo "Downloading libffi library"
+curl -s -L -o tmp-libffi.tar.gz $VENDORED_LIBFFI
+
+echo "Untar xmlsec1 library"
+tar -zxf tmp-libffi.tar.gz # > /dev/null #TODO Hide this output
+
+echo "Remove temporary files"
+rm tmp-libffi.tar.gz
 
 echo "Set env variables"
 mkdir -p $(dirname $PROFILE_PATH)
-set-env PATH '/app/xmlsec1-1.2/bin:$PATH'
-set-env LD_LIBRARY_PATH '/app/xmlsec1-1.2/lib:$LD_LIBRARY_PATH'
+set-env PATH '$HOME/vendor/xmlsec1-1.2/bin:$PATH'
+set-env LD_LIBRARY_PATH '$HOME/vendor/xmlsec1-1.2/lib:$HOME/vendor/libffi-3.0/lib:$LD_LIBRARY_PATH'
+set-env PKG_CONFIG_PATH '$HOME/vendor/libffi-3.0/lib/pkgconfig:$PKG_CONFIG_PATH'
