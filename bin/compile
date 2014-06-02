@@ -14,7 +14,7 @@ PROFILE_PATH="$1/.profile.d/xmlsec1.sh"
 echo "Create directories"
 cd "$1" 
 mkdir -p "./vendor/xmlsec1-1.2"
-mkdir -p "./vendor/libffi-3.0"
+
 
 echo "Install xmlsec1 library"
 cd "./vendor/xmlsec1-1.2"
@@ -29,10 +29,11 @@ tar -zxf tmp-libxmlsec1.tar.gz # > /dev/null #TODO Hide this output
 echo "Remove temporary files"
 rm tmp-libxmlsec1.tar.gz
 
-cd $1
+
 
 echo "Install libffi library"
-cd "./vendor/libffi-3.0"
+mkdir -p "/app/vendor/libffi-3.0"
+cd "/app/vendor/libffi-3.0"
 
 # Download and untar xmlsec1 library
 echo "Downloading libffi library"
