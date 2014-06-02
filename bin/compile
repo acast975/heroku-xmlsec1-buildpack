@@ -5,6 +5,8 @@ set-env() {
   echo "export $1=$2" >> $PROFILE_PATH
 }
 
+echo $PKG_CONFIG_PATH
+
 # The location of the pre-compiled xmlsec1 binary.
 VENDORED_XMLSEC1="http://160.99.9.199/astanimirovic/xmlsec1-1.2.tgz"
 VENDORED_LIBFFI="https://s3.amazonaws.com/rt-uploads/libffi-3.0.tgz"
